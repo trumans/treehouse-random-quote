@@ -35,21 +35,21 @@ var quotes = [
     'tags': ['misquotes', 'humor']
   },
   {
-    'quote': 'More than anything else, Jonathan Livingston Seagull loved to fly',
+    'quote': 'More than anything else, Jonathan Livingston Seagull loved to fly.',
     'source': 'Richard Bach',
     'citation': 'Jonathan Livingston Seagull',
     'year': '1970',
     'tags': ['book']
   },
   {
-    'quote': 'The answer to the great question of life, the universe and everything is forty-two',
+    'quote': 'The answer to the great question of life, the universe and everything is forty-two.',
     'source': 'Deep Thought',
     'citation': 'The Hitchhiker\'s Guide to the Galaxy, Chapter 27',
     'year': '1979',
     'tags': ['humor', 'book']
   },
   {
-    'quote': 'I\'ve developed a new philosophy. I only dread one day at a time',
+    'quote': 'I\'ve developed a new philosophy. I only dread one day at a time.',
     'source': 'Charlie Brown',
     'citation': 'Peanuts comic strip',
     'year': 'August 8, 1966',
