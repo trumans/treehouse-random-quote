@@ -13,15 +13,15 @@ var quotes = [
     'tags': []
   },
   {
+    'quote': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    'source': 'Cicero',
+    'citation': 'De finibus bonorum et malorum',
+    'tags': ['p', 'l', 'a', 'c', 'e', 'h', 'o', 'l', 'd', 'e', 'r']
+  },
+  {
     'quote': 'Look both ways before crossing the street',
     'source': 'our parents',
     'tags': ['parents']
-  },
-  {
-    'quote': 'Luke, I am your father',
-    'source': 'not Darth Vader',
-    'citation': 'misquote of Star Wars: Episode V - The Empire Strikes Back',
-    'tags': ['misquotes', 'movie']
   },
   {
     'quote': 'Luke, I am your father',
@@ -39,7 +39,7 @@ var quotes = [
     'source': 'Richard Bach',
     'citation': 'Jonathan Livingston Seagull',
     'year': '1970',
-    'tags': ['inspriational', 'book']
+    'tags': ['book']
   },
   {
     'quote': 'The answer to the great question of life, the universe and everything is forty-two',
@@ -54,14 +54,7 @@ var quotes = [
     'citation': 'Peanuts comic strip',
     'year': 'August 8, 1966',
     'tags': ['humor', 'comic strip']
-  },
-  {
-    'quote': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    'source': 'Cicero',
-    'citation': 'De finibus bonorum et malorum',
-    'tags': ['placeholder text']
   }
-
 ];
 
 
