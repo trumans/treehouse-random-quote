@@ -1,14 +1,14 @@
 // FSJS - Random Quote Generator
 
 // Create the array of quote objects and name it quotes
-var quotes = [
+let quotes = [
   {
     'quote': 'Yabba Dabba Doo!',
     'source': 'Fred Flinstone',
     'citation': 'The Flintstones',
   },
   {
-    'quote': 'Scooby Doo!',
+    'quote': 'Scooby-Dooby-Doo!',
     'source': 'Scooby-Doo',
     'tags': []
   },
@@ -21,7 +21,7 @@ var quotes = [
   {
     'quote': 'Look both ways before crossing the street',
     'source': 'our parents',
-    'tags': ['parents']
+    'tags': ['parent wisdom']
   },
   {
     'quote': 'Luke, I am your father',
@@ -59,40 +59,42 @@ var quotes = [
 
 
 // Create a list of background colors
-var colors = [
+let colors = [
   'Black', 'Blue', 'Brown', 'Gray', 'Indigo', 'Maroon', 'OrangeRed',
   'Red', 'Purple', 'Teal', 'DarkOrange', 'DarkMagenta', 'DarkRed'
 ];
+
+let autoRepeatCycle = 10000;
+
+let previousQuote;
+let previousColor;
+let autoRepeat;
 
 // Return a random number from 0 but not including 'limit'
 function randomIndex(limit) {
   return Math.floor( Math.random() * limit);
 }
 
-// Save previous values to avoid repeating
-var previousQuote;
-var previousColor;
-
 // Create the getRandomQuuote function and name it getRandomQuote
-//  Verify this is not the previous quote
+//  Don't repeat the immediately previous quote
 function getRandomQuote(array, previous) {
   let newQuote;
   do { newQuote = array[ randomIndex( array.length ) ]; }
-    while ( previous !== undefined && previous['quote'] === newQuote['quote'] );
+    while ( previous === newQuote );
   return newQuote;
 }
 
-// Get a random color
-//  Verify is is not the previous color
+// Get a random color without repeating the immeidately previous color
 function getRandomColor(previous) {
   let newColor;
   do { newColor = colors[ randomIndex( colors.length ) ]; }
-    while ( previous !== undefined && previous === newColor );
+    while ( previous === newColor );
   return newColor;
 }
 
 // Create the printQuote funtion and name it printQuote
 function printQuote() {
+
   let htmlStr = '';
   let quote = getRandomQuote(quotes, previousQuote);
 
@@ -122,9 +124,15 @@ function printQuote() {
   let color = getRandomColor(previousColor);
   document.getElementsByTagName('body')[0].style.backgroundColor = color;
   previousColor = color;
+
+  // reset the auto repeat timer
+  clearTimeout(autoRepeat);
+  autoRepeat = setTimeout(printQuote, autoRepeatCycle);
 }
 
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+// launch first automatic cycle for another quote
+autoRepeat = setTimeout(printQuote, autoRepeatCycle);
