@@ -68,6 +68,20 @@ body {
   font-style: normal;
 }
 
+ul.tag {
+  margin-right: 0px;
+  padding: 0px;
+}
+
+li.tag {
+  font-family: "Arial";
+  display: inline-block;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  margin-right: 10px;
+  padding: 10px;
+}
+
 #loadQuote {
   position: fixed;
   width: 12em;

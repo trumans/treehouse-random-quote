@@ -1,49 +1,71 @@
 // FSJS - Random Quote Generator
 
 // Create the array of quote objects and name it quotes
-function makeQuote(quote, source, citation, year) {
-  return { 'quote': quote, 'source': source, 'citation': citation, 'year': year };
-}
-
 var quotes = [
-  makeQuote(
-    'Yabba Dabba Doo!',
-    'Fred Flinstone',
-    'The Flintstones',
-    ''
-  ),
-  makeQuote(
-    'Luke, I am your father',
-    'not Darth Vader',
-    'misquote of Star Wars: Episode V - The Empire Strikes Back',
-    ''
-  ),
-  makeQuote(
-    'The coldest winter I ever spent was a summer in San Francisco.',
-    'misattributed to Mark Twain',
-    '', ''
-  ),
-  makeQuote(
-    'More than anything else, Jonathan Livingston Seagull loved to fly',
-    'Richard Bach',
-    'Jonathan Livingston Seagull',
-    '1970'
-  ),
-  makeQuote(
-    'The answer to the great question of life, the universe and everything is forty-two',
-    'Deep Thought',
-    'The Hitch Hiker\'s Guide to the Galaxy, Chapter 27',
-    '1979'
-  ),
-  makeQuote(
-    'I\'ve developed a new philosophy. I only dread one day at a time',
-    'Charlie Brown',
-    'Peanuts comic strip',
-    'August 8, 1966'
-  )
+  {
+    'quote': 'Yabba Dabba Doo!',
+    'source': 'Fred Flinstone',
+    'citation': 'The Flintstones',
+  },
+  {
+    'quote': 'Scooby Doo!',
+    'source': 'Scooby-Doo',
+    'tags': []
+  },
+  {
+    'quote': 'Look both ways before crossing the street',
+    'source': 'our parents',
+    'tags': ['parents']
+  },
+  {
+    'quote': 'Luke, I am your father',
+    'source': 'not Darth Vader',
+    'citation': 'misquote of Star Wars: Episode V - The Empire Strikes Back',
+    'tags': ['misquotes', 'movie']
+  },
+  {
+    'quote': 'Luke, I am your father',
+    'source': 'not Darth Vader',
+    'citation': 'misquote of Star Wars: Episode V - The Empire Strikes Back',
+    'tags': ['misquotes', 'movie']
+  },
+  {
+    'quote': 'The coldest winter I ever spent was a summer in San Francisco.',
+    'source': 'misattributed to Mark Twain',
+    'tags': ['misquotes', 'humor']
+  },
+  {
+    'quote': 'More than anything else, Jonathan Livingston Seagull loved to fly',
+    'source': 'Richard Bach',
+    'citation': 'Jonathan Livingston Seagull',
+    'year': '1970',
+    'tags': ['inspriational', 'book']
+  },
+  {
+    'quote': 'The answer to the great question of life, the universe and everything is forty-two',
+    'source': 'Deep Thought',
+    'citation': 'The Hitchhiker\'s Guide to the Galaxy, Chapter 27',
+    'year': '1979',
+    'tags': ['humor', 'book']
+  },
+  {
+    'quote': 'I\'ve developed a new philosophy. I only dread one day at a time',
+    'source': 'Charlie Brown',
+    'citation': 'Peanuts comic strip',
+    'year': 'August 8, 1966',
+    'tags': ['humor', 'comic strip']
+  },
+  {
+    'quote': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    'source': 'Cicero',
+    'citation': 'De finibus bonorum et malorum',
+    'tags': ['placeholder text']
+  }
+
 ];
 
-// Create an array of background colors
+
+// Create a list of background colors
 var colors = [
   'Black', 'Blue', 'Brown', 'Gray', 'Indigo', 'Maroon', 'OrangeRed',
   'Red', 'Purple', 'Teal', 'DarkOrange', 'DarkMagenta', 'DarkRed'
@@ -85,13 +107,20 @@ function printQuote() {
   htmlStr += '<p class="quote">' + quote['quote'] + '</p>';
   htmlStr += '<p class="source">' + quote['source'];
   // conditionally include citation and year, if present
-  if ( quote['citation'].length !== 0 ) {
+  if ( quote['citation'] !== undefined ) {
     htmlStr += '<span class="citation">' + quote['citation'] + '</span>';
   }
-  if ( quote['year'].length !== 0 ) {
+  if ( quote['year'] !== undefined ) {
     htmlStr += '<span class="year">' + quote['year'] + '</span>';
   }
   htmlStr += '</p>';
+  if ( quote['tags'] !== undefined && quote['tags'].length ) {
+    htmlStr += '<ul class="tag">';
+    for (let i = 0; i < quote['tags'].length; i++ ) {
+      htmlStr += '<li class="tag">' + quote['tags'][i] + '</li>';
+    }
+    htmlStr += '</ul>';
+  }
 
   document.getElementById('quote-box').innerHTML = htmlStr;
   previousQuote = quote;
